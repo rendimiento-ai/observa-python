@@ -1,0 +1,8 @@
+# rendimiento tests this library on every push: it has no service to
+# deploy, so a run on main succeeds with "nothing to deploy".
+tasks:
+  - name: test
+    path: .
+    when: always
+    image: python:3.12-slim
+    command: pip install --quiet --no-cache-dir '.[test]' && python -m pytest -q tests
